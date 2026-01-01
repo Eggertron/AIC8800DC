@@ -19,6 +19,12 @@ sudo make install
 sudo modprobe aic8800_fdrv
 sudo modprobe aic_load_fw
 ```
+Remember to reboot the system.
+
+## Raspberry PI
+The AIC8800DC WIFI usb dongle must be switched from the storage mode to the
+WIFI card mode. The following will add a rule to automatically do this for
+you at boot time.
 
 ```sh
 edit the following file
