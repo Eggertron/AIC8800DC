@@ -20,7 +20,7 @@ sudo modprobe aic8800_fdrv
 sudo modprobe aic_load_fw
 ```
 
-
+```sh
 edit the following file
 
 $ sudo nano  /lib/udev/rules.d/40-usb_modeswitch.rules
@@ -46,3 +46,4 @@ put the following inside:
 TargetVendor=0xa69c
 TargetProductList="88dc"
 StandardEject=1
+```
