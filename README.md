@@ -19,3 +19,30 @@ sudo make install
 sudo modprobe aic8800_fdrv
 sudo modprobe aic_load_fw
 ```
+
+
+edit the following file
+
+$ sudo nano  /lib/udev/rules.d/40-usb_modeswitch.rules
+
+below the following line
+
+SUBSYSTEM!="usb", ACTION!="add",, GOTO="modeswitch_rules_end"
+
+add two lines
+
+# D-Link DWA-X1850 USB WiFi Adapter , Alfa AWUS036AXER USB WiFi Adapter
+ATTR{idVendor}=="a69c", ATTR{idProduct}=="5721", RUN+="usb_modeswitch '/%k'"
+
+save the file ( Ctrl + x, y, Enter )
+
+create the file /usr/share/usb_modeswitch/a69c:5721
+
+$ sudo nano /usr/share/usb_modeswitch/a69c:5721
+
+put the following inside:
+
+#  AIC8800DC USB WiFi Adapter , AIC8800DC USB WiFi Adapter
+TargetVendor=0xa69c
+TargetProductList="88dc"
+StandardEject=1
